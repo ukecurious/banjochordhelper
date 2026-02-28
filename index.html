@@ -8,10 +8,20 @@
 <body>
   <div id="root"></div>
 
+  <script>
+    console.log("Test: HTML script is running");
+    window.appDebugStart = new Date();
+  </script>
+
   <!--
     The output of our build step is a self-contained bundle created by esbuild.
     It includes React and ReactDOM, so no import map is necessary.
   -->
   <script src="js/index.js"></script>
+  
+  <script>
+    window.appDebugEnd = new Date();
+    console.log("Script loaded. Time to load:", window.appDebugEnd - window.appDebugStart, "ms");
+  </script>
 </body>
 </html>
