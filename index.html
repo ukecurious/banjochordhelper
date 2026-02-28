@@ -7,6 +7,23 @@
 </head>
 <body>
   <div id="root"></div>
-  <script src="js/index.js"></script>
+
+  <!--
+    We compile JSX with Babel but *do not bundle* dependencies;<br>
+    the output still uses ES module imports (e.g. "import React from 'react'").
+    Browsers can resolve those using the import map below, which points
+    them at CDN-hosted builds of React and ReactDOM.
+  -->
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://unpkg.com/react@18/umd/react.production.min.js",
+      "react-dom": "https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+    }
+  }
+  </script>
+
+  <!-- load our compiled module as an ES module -->
+  <script type="module" src="js/index.js"></script>
 </body>
 </html>
