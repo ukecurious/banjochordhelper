@@ -9,21 +9,9 @@
   <div id="root"></div>
 
   <!--
-    We compile JSX with Babel but *do not bundle* dependencies;<br>
-    the output still uses ES module imports (e.g. "import React from 'react'").
-    Browsers can resolve those using the import map below, which points
-    them at CDN-hosted builds of React and ReactDOM.
+    The output of our build step is a self-contained bundle created by esbuild.
+    It includes React and ReactDOM, so no import map is necessary.
   -->
-  <script type="importmap">
-  {
-    "imports": {
-      "react": "https://cdn.skypack.dev/react@18",
-      "react-dom": "https://cdn.skypack.dev/react-dom@18"
-    }
-  }
-  </script>
-
-  <!-- load our compiled module as an ES module -->
-  <script type="module" src="js/index.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>
